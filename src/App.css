@@ -8,6 +8,9 @@
   justify-content: space-evenly;
 }
 
+i{
+  color: #6A737D;
+}
 
 #logo{
   background-color: white;

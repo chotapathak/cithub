@@ -1,0 +1,124 @@
+.profile{
+    display: flex;
+    margin: 42px;
+}
+.profile-name > b {
+color: #0070F3;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+}
+
+.profile-name > h2 {
+  font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 49px;
+}
+#joined-date{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.profile-1{
+    display: flex;
+    justify-content: space-evenly;
+}
+.user-pic{
+  display: flex;
+  align-items: center;
+}
+.user-pic > img {
+  border: 8px solid #0070f3;
+  border-radius: 150px;
+  height: 150px;
+  width: 150px;
+  background-color: white;
+}
+.profile-bio{
+    display: flex;
+    justify-content: space-between;
+
+    gap: 9px;
+    margin-top: 56px;
+}
+  
+  .flex-col h2 {
+    margin: 10px 0;
+  }
+  
+  .flex-col p {
+    margin: 0;
+  }
+  
+.flex-col > p {
+    color: rgba(200, 225, 255, 0.7);
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    background: #24292E;
+    border-radius: 4px;
+    width: 150px;
+    height: 88px;
+    text-align: center;
+    justify-content: center;
+}
+h2{
+    font-weight: 400;
+}
+
+.pie{
+    align-items: center;
+    display: flex;
+    width: 90%;
+    margin-left: 9%;
+    gap: 3%;
+    justify-content: flex-start;
+}
+#piechart{
+  width: 240px;
+  background-color: aliceblue;
+}
+#piechart > p{
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+}
+.chart{
+  margin: 30px;
+}
+
+/* @media screen and (max-width: 600px) {
+  .profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .profile-name > b{
+    color: #0070f3;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .profile-name > h2{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 49px;
+  }
+  .profile-1{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+} */
