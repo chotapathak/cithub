@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Frontend Task 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">
+  Github-user-fetcher
+<br/>
+</h1>
 
-In the project directory, you can run:
+<p align='center'>
+This project is Built using <b>Github-API</b>
+ where anyone can search directly with username
+</p>
 
-### `npm start`
+Create this simple website with two pages:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **GitHub Profile**: Contains a text field for GitHub Profile. User will enter his GitHub profile name / id here.
+2. **User Details Page**: The header shows the GitHub profile details of the user- number of repositories, followers & following.
+   There are 2 pie charts showing top languages and top repositories (based on stars).
+   The main area shows all the user repositories with the following details - language, stars, forks, and size.
+   The repository list should be sortable (according to stars, forks, etc) as well as searchable.
+## [ Demo url](https://cithub.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📃 Table of contents
 
-### `npm test`
+- [Installation](#installation)
+  - [Test](#commands)
+    - [Process](#process)
+  - [Usage](#usage)
+- [File&Structure](#architecture-)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📥 Installation
 
-### `npm run build`
+- Start by cloning the repo with following command
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/chotapathak/cithub.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧮 Test:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+cd cithub
+npm install
+npm start
+```
 
-### `npm run eject`
+## 🔗 Process
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Created a 2 api call one to get user deatils with username and another to show user repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+  - [Provider](http://localhost:3000/usersdetails)
+      - [App](http://localhost:3000/)
+  - [Routes](http://localhost:3000/usersdetails/:id)
 
-## Learn More
+## Project usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- using **ReactJS** [React](https://reactjs.org/) and [Githuub-js](https://api.github.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## File & Route structure
 
-### Code Splitting
+```
+index.js[ContextProvider | Router] - host
+  |- app.js[Routes] - App
+    |- Home.js - Home page
+    |  |- userdetails.js - User details page
+    |  |  |- profile.js - GitHub profile page
+    |  |  |  |- pie chart.js - Pie chart
+          |- repo - Repository list page
+          |  |- searching & sorting.js - Searching & sorting page
+          |  |- userlist.js - User list page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+````
 
-### Analyzing the Bundle Size
+```
+- React Context Hook To get data in other components easily
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+localhost:3000/
 
-### Making a Progressive Web App
+with Context And Router
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+- React Router DOM Hook To make routes on
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🔧 Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Tech Stacks
 
-### `npm run build` fails to minify
+'''React | react-minimal-pie-chart | React-router-dom | Axios '''
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+
+<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel"/>
+    <img src="https://img.shields.io/badge/Github-0070ba?style=for-the-badge&logo=github&logoColor=white" alt="Github"/>
+
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript"/>
+<img src="https://img.shields.io/badge/NodeJS-3F6E1F?style=for-the-badge&logo=nodejs&logoColor=white" alt="NodeJS"/>
+<br/>
+
+<img src="https://img.shields.io/badge/React-0070ba?style=for-the-badge&logo=react&logoColor=white" alt="React"/>
+<img src="https://img.shields.io/badge/Axios-000000?style=for-the-badge&logo=axios&logoColor=white" alt="axios"/>
+</p>
+
+## 👨🏻‍💻 Contributor
+
+- ## [Vikash Pathak](https://www.linkedin.com/in/vikash-pathak-298a01183/?originalSubdomain=in)
