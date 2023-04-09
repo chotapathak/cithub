@@ -10,10 +10,11 @@ const Pie = () => {
     
     useEffect(() => {
         const languageData = {};
-        const sortedRepo = repos.sort((a,b) => b.stargazers_count - a.stargazers_count);
+        // const sortedRepo = repos?.sort((a,b) => b.stargazers_count - a.stargazers_count);
+        const sortedRepo = repos
         const tmp = [];
 
-        for(let i = 0; i < sortedRepo.length; i++){
+        for(let i = 0; i < sortedRepo?.length; i++){
 
             if(languageData[sortedRepo[i].language] === undefined){
                 languageData[sortedRepo[i].language] = {count: 1 , color : getColor(sortedRepo[i].language)};
@@ -31,7 +32,7 @@ const Pie = () => {
         }
         const tmpData = [];
         for(let key in languageData){
-            tmpData.push({
+            tmpData?.push({
                 title: key,
                 value: languageData[key].count,
                 color: languageData[key].color
@@ -41,7 +42,6 @@ const Pie = () => {
         setTopRepos(tmp);
     }, [repos])
 
-    // console.log(repos, "repos")
   return (
     <div style={{display: 'flex', gap: '30px'}}>
 

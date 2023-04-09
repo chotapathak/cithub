@@ -5,14 +5,14 @@ import React, {useContext, useEffect} from "react";
 import {GithubContext} from "../context/Context";
 import Profile from '../components/Profile/';
 import Repo from "../components/Repo/";
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+
 function UserDetails() {
   const { fetchUser , repos} = useContext(GithubContext);
-  const { user } = useSelector((state) => state.user);
-  // const repos = useSelector((state) => state.repos);
-  // const repo = repos || {};
-  console.log(repos);
+  const repo = repos || {};
+  
+  const { user } = useSelector(state => state.user);
   
   const { username } = useParams();
   
@@ -25,7 +25,7 @@ function UserDetails() {
   return (
     <>
       <Profile user={user} />
-     {repos && <Repo repos={repos}  />}
+     {repo && <Repo repos={repos}  />}
     </>
 
   );

@@ -11,24 +11,35 @@ function GithubProvider({ children }) {
   const navigation = useNavigate();
 
   const user = useSelector((state) => state.user);
-  // const repos = useSelector((state) => state.repo);
-  const repos = []
+  const repos = useSelector((state) => state.user.repos);
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
+  
+  const fetchAllRepos = async (gituser, page = 1) => {
+    try {
+      dispatch(setLoading(true));
+      const response = await axios.get(`https://api.github.com/users/${gituser}/repos?page=${page}&per_page=30`);
+      const repos = response?.data || [];
+      dispatch(setRepos(repos));
+      if (repos.length === 30) {
+        await fetchAllRepos(gituser, page + 1);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    dispatch(setLoading(false));
+  };
   
 
   const requestRepo = async (gituser) => {
     try {
       dispatch(setLoading(true));
-      const response = await axios.get(`https://api.github.com/users/${gituser}/repos`);
-      dispatch(setRepos(response?.data.slice(0,21)));
-      repos.push(response?.data.slice(0, 9));
-      
+      await fetchAllRepos(gituser);
     } catch (error) {
       console.log(error);
     }
     dispatch(setLoading(false));
-  }
+  };  
 
   const fetchUser = async (gituser) => {
     try {
