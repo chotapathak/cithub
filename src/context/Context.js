@@ -1,53 +1,58 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { createContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setUsers, setRepos, setLoading, setError } from "../redux/slice";
 
 export const GithubContext = createContext();
 
 function GithubProvider({ children }) {
-
-  const [user, setUser] = useState({});
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);  
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
   const navigation = useNavigate();
 
-  // console.log(repos, "repos")
-
+  const user = useSelector((state) => state.user);
+  // const repos = useSelector((state) => state.repo);
+  const repos = []
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
   
 
   const requestRepo = async (gituser) => {
     try {
+      dispatch(setLoading(true));
       const response = await axios.get(`https://api.github.com/users/${gituser}/repos`);
-      setRepos(response.data);
+      dispatch(setRepos(response?.data.slice(0,21)));
+      repos.push(response?.data.slice(0, 9));
+      
     } catch (error) {
       console.log(error);
     }
+    dispatch(setLoading(false));
   }
 
   const fetchUser = async (gituser) => {
     try {
-      setLoading(true);
+      dispatch(setLoading(true));
       const response = await axios.get(`https://api.github.com/users/${gituser}`);
-      setUser(response.data);
+      dispatch(setUsers(response?.data));
       navigation(`/userdetails/${gituser}`);
     } catch (error) {
-      setError(error.message);
+      dispatch(setError(error.message));
       console.log(error);
     }
-      setLoading(false);
+    dispatch(setLoading(false));
   };
+
   useEffect(() => {
-    if(user.login){
+    
+    if(user?.login){
       requestRepo(user.login);
     }
-    
   }, [user.login]);
 
-  
 
   return (
-    <GithubContext.Provider value={{ user, repos, fetchUser, error, loading}}>
+    <GithubContext.Provider value={{ repos, fetchUser, error, loading }}>
       {children}
     </GithubContext.Provider>
   );

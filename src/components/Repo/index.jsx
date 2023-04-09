@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { GithubContext } from "../../context/Context";
+import { useSelector } from "react-redux";
 import images from "../../assests";
 import { getColor } from "../../utilities";
 
 import "./repo.css";
-const Repo = () => {
-  
-  const { repos } = useContext(GithubContext);
+const Repo = ({repos}) => {
+  // const repos  = useSelector((state) => state.repos);
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("stars");
 
@@ -39,7 +39,7 @@ const Repo = () => {
       </div>
       <div className="repo-list">
         {repos
-          .filter((repo) => repo.name.includes(filter))
+          ?.filter((repo) => repo.name.includes(filter))
           .sort((a, b) => b[sortBy] - a[sortBy])
           .map((repo) => (
             <div key={repo.name} className="project">

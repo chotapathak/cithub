@@ -5,15 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GithubProvider from './context/Context';
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from './redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <Router>
     <GithubProvider>
     <App />
     </GithubProvider>
-    </Router>
+      </Router>
+    </Provider>
   </React.StrictMode>
 );
 
