@@ -21,7 +21,7 @@ function Home() {
         {loading ? (
           <h2>Loading...</h2>
         ) : (
-          <button onClick={() => fetchUser(username)}>Who am I ?</button>
+          <button onClick={() => fetchUser(username)}>Search user</button>
         )}
         {error ? <h2>{error}</h2> : null}
       </div>
